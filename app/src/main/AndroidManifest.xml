@@ -11,6 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDesafioSanta">
+
+        <activity
+            android:name=".ListaTarefasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroTarefaActivity"
+            android:exported="false" />
+
         <activity
             android:name=".CadastroActivity"
             android:exported="false" />

@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import com.example.appdesafiosanta.databinding.ActivityCadastroBinding
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
@@ -14,7 +14,7 @@ import com.google.firebase.firestore.firestore
 class CadastroActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCadastroBinding
-    private lateinit var db: FirebaseFirestore
+    private lateinit var db: FirebaseFirestore // Declarada aqui
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,9 @@ class CadastroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val db = Firebase.firestore
+
+
+        db = Firebase.firestore
 
 
         binding.btnCadastrar.setOnClickListener {
@@ -46,6 +48,7 @@ class CadastroActivity : AppCompatActivity() {
                 "quantidade" to quantidade.toInt()
             )
 
+
             db.collection("produtos")
                 .add(produto)
                 .addOnSuccessListener {
@@ -58,7 +61,6 @@ class CadastroActivity : AppCompatActivity() {
                     Toast.makeText(this, "Erro ao cadastrar produto.", Toast.LENGTH_SHORT).show()
                 }
         }
-
 
         binding.fabLista.setOnClickListener {
             Toast.makeText(this, "Abrir lista de produtos (a implementar)", Toast.LENGTH_SHORT).show()

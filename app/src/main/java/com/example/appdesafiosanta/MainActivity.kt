@@ -11,7 +11,7 @@ import com.example.appdesafiosanta.databinding.ActivityMainBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import com.google.firebase.auth.ktx.auth
+
 
 
 class MainActivity : AppCompatActivity() {

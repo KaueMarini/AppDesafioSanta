@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AppDesafioSanta</string>
+    <string-array name="status_tarefas">
+        <item>Pendente</item>
+        <item>Em Andamento</item>
+        <item>Concluído</item>
+    </string-array>
 </resources>

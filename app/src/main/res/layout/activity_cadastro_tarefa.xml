@@ -1,107 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Cadastro"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CadastroActivity"> <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".CadastroTarefaActivity">
 
     <TextView
-        android:id="@+id/tv_cadastro_title"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Produto"
+        android:text="Cadastrar Tarefa"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/til_nome"
+        app:layout_constraintBottom_toTopOf="@+id/til_nome_tarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_nome"
+        android:id="@+id/til_nome_tarefa"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nome do Produto"
-        app:layout_constraintBottom_toTopOf="@+id/til_preco"
+        android:layout_marginTop="32dp"
+        android:hint="Nome da Tarefa"
+        app:layout_constraintBottom_toTopOf="@+id/til_categoria_tarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_nome"
+            android:id="@+id/edt_nome_tarefa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_preco"
+        android:id="@+id/til_categoria_tarefa"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Preço"
-        app:layout_constraintBottom_toTopOf="@+id/til_quantidade"
+        android:hint="Categoria"
+        app:layout_constraintBottom_toTopOf="@+id/til_status_tarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_nome">
+        app:layout_constraintTop_toBottomOf="@id/til_nome_tarefa">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_preco"
+            android:id="@+id/edt_categoria_tarefa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_quantidade"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/til_status_tarefa"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Quantidade em Estoque"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cadastrar"
+        android:hint="Status"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cadastrar_tarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_preco">
+        app:layout_constraintTop_toBottomOf="@id/til_categoria_tarefa">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_quantidade"
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:inputType="none"
+            android:text="Pendente" /> </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/btn_cadastrar"
+        android:id="@+id/btn_cadastrar_tarefa"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="32dp"
-        android:text="Cadastrar"
+        android:text="Cadastrar Tarefa"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_quantidade" />
+        app:layout_constraintTop_toBottomOf="@id/til_status_tarefa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_lista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="Ver lista de produtos"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
